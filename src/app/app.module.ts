@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { ListComponent } from './components/list/list.component';
-
+import { ClientService } from './services/client.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { ListComponent } from './components/list/list.component';
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

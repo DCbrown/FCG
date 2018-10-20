@@ -14,13 +14,12 @@
   
 
   <hr class="my-4 pb-2">
-  <button class="btn btn-indigo btn-rounded" (click)="basicModal.show()">Generate A Client <i class="fa fa-users ml-1"></i></button>
+  <button class="btn btn-indigo btn-rounded" (click)="basicModal.show(); generateClient()">Generate A Client <i class="fa fa-users ml-1"></i></button>
 
 </div>
 <!--Jumbotron-->
 
-
-<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<div mdbModal style="overflow-y: auto" #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,7 +29,37 @@
         <h4 class="modal-title w-100" id="myModalLabel">Accept the Job?</h4>
       </div>
       <div class="modal-body">
-        ...
+        <!--Card-->
+    <mdb-card cascade="true" wider="true">
+
+      <!--Card image-->
+      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+        <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg"></mdb-card-img>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <!--/Card image-->
+
+      <mdb-card-body cascade="true" class="text-center">
+        <!--Card content-->
+        <!--Title-->
+        <h4 class="card-title">
+          <strong> {{clients.name}}</strong>
+        </h4>
+        <h5 class="indigo-text">
+          <strong>Photographer</strong>
+        </h5>
+
+        <mdb-card-text>
+          Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+        </mdb-card-text>
+        
+
+      </mdb-card-body>
+      <!--/.Card content-->
+
+    </mdb-card>
       </div>
       <div class="modal-footer col-md-9 ml-4">
         <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect><i class="fa fa-times" aria-hidden="true"></i></button>

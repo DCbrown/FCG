@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../../models/client';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-jumbotron',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JumbotronComponent implements OnInit {
 
-  constructor() { }
+  clients: any;
+
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
+    this.clients = this.clientService.getRandomClient();
   }
+
+  generateClient(){
+    console.clear();
+    this.clients = this.clientService.getRandomClient();
+  }
+  
+
 
 }

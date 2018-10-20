@@ -9,7 +9,7 @@
   </div>      
   <!--Subtitle-->
   <br>
-  <p class="indigo-text"><strong>Practice your Web Development skills taking on random fake client requests</strong></p>
+  <p class="indigo-text"><strong>Practice your Web Development skills by taking on random fake client requests</strong></p>
   
   
 
@@ -26,7 +26,7 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="myModalLabel">Accept the Job?</h4>
+        <hr>
       </div>
       <div class="modal-body">
         <!--Card-->
@@ -48,7 +48,7 @@
           <strong> {{clients.name}}</strong>
         </h4>
         <h5 class="indigo-text">
-          <strong>Photographer</strong>
+          <strong>{{clients.requestTitle}}</strong>
         </h5>
 
         <mdb-card-text>
@@ -61,6 +61,7 @@
 
     </mdb-card>
       </div>
+      <h4 class="modal-title w-100 text-center" id="myModalLabel">Accept the Job?</h4>
       <div class="modal-footer col-md-9 ml-4">
         <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect><i class="fa fa-times" aria-hidden="true"></i></button>
         <button type="button" mdbBtn color="success" class="relative waves-light" mdbWavesEffect><i class="fa fa-check" aria-hidden="true"></i></button>

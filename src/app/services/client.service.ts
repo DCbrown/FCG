@@ -48,4 +48,5 @@ export class ClientService {
     console.log(this.randomClient);
     return this.randomClient;
   }
+  // use API at: https://uifaces.co/api-docs
 }

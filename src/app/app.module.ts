@@ -8,13 +8,15 @@ import { NavComponent } from './components/nav/nav.component';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { ListComponent } from './components/list/list.component';
 import { ClientService } from './services/client.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     JumbotronComponent,
-    ListComponent
+    ListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

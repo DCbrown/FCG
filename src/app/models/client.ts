@@ -7,4 +7,7 @@ export class Client {
     paragraphTwo:string;
     paragraphThree:string;
     attachment:string;
+    status:string;
+    progress:number;
+    notes:string;
 };

@@ -5,7 +5,9 @@ import { Client } from '../models/client';
 export class ClientService {
 
   clientRequest: Client[];
-  savedClients: Client[];
+  acceptedClients: Client[];
+  inProgressClients: Client[];
+  FinishedClients: Client[];
   randomClient: any;
 
   constructor() {
@@ -19,6 +21,9 @@ export class ClientService {
         paragraphTwo:'',
         paragraphThree:'',
         attachment:'',
+        status:'notAccepted',
+        progress:0,
+        notes:''
       },
       {
         id:2,
@@ -29,6 +34,9 @@ export class ClientService {
         paragraphTwo:'',
         paragraphThree:'',
         attachment:'',
+        status:'notAccepted',
+        progress:0,
+        notes:''
       },
       {
         id:3,
@@ -39,14 +47,31 @@ export class ClientService {
         paragraphTwo:'',
         paragraphThree:'',
         attachment:'',
+        status:'notAccepted',
+        progress:0,
+        notes:''
       }
     ]
   }
+
+  // ---Statuses---
+  // notAccepted
+  // Accepted
+  // inProgress
+  // finished
 
   getRandomClient(): Client[]{
     this.randomClient = this.clientRequest[Math.floor(Math.random() * this.clientRequest.length)];
     console.log(this.randomClient);
     return this.randomClient;
   }
+
+  saveRandomClient(): Client[]{
+    this.randomClient = this.randomClient;
+    return this.randomClient; 
+  }
+
+
+
   // use API at: https://uifaces.co/api-docs
 }

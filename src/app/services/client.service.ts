@@ -1,58 +1,64 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../models/client';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of'; 
 
 @Injectable()
 export class ClientService {
 
-  clientRequest: Client[];
-  acceptedClients: Client[];
-  inProgressClients: Client[];
-  FinishedClients: Client[];
-  randomClient: any;
-
+  clients: Client[];
+  
   constructor() {
-    this.clientRequest = [
+    this.clients = [
       {
-        id:1,
-        name:'Jude',
+        id:'1',
+        firstName:'James',
+        lastName: 'Dean',
         picture:'',
-        requestTitle:'Need a Web Developer',
-        paragraphOne:'I need a WebSite1',
-        paragraphTwo:'',
-        paragraphThree:'',
-        attachment:'',
+        requestTitle:'Need Web Developer',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo:null,
+        paragraphThree:null,
+        attachment:null,
         status:'notAccepted',
         progress:0,
-        notes:''
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
       },
       {
-        id:2,
-        name:'Anthony',
+        id:'1',
+        firstName:'Karen',
+        lastName:'Joss',
         picture:'',
-        requestTitle:'Need a Web Developer2',
-        paragraphOne:'I need a WebSite2',
-        paragraphTwo:'',
-        paragraphThree:'',
-        attachment:'',
+        requestTitle:'Need Web Developer ASAP',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo:'I run an online shop',
+        paragraphThree:null,
+        attachment:null,
         status:'notAccepted',
         progress:0,
-        notes:''
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
       },
       {
-        id:3,
-        name:'Brandon',
+        id:'1',
+        firstName:'Chris',
+        lastName:'Forte',
         picture:'',
-        requestTitle:'Need a Web Developer3',
-        paragraphOne:'I need a WebSite3',
-        paragraphTwo:'',
-        paragraphThree:'',
-        attachment:'',
+        requestTitle:'Need Web Developer',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo: 'I starting an online biz',
+        paragraphThree: 'I will need a logo as well',
+        attachment:null,
         status:'notAccepted',
         progress:0,
-        notes:''
-      }
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
+      },
     ]
   }
+
 
   // ---Statuses---
   // notAccepted
@@ -60,17 +66,9 @@ export class ClientService {
   // inProgress
   // finished
 
-  getRandomClient(): Client[]{
-    this.randomClient = this.clientRequest[Math.floor(Math.random() * this.clientRequest.length)];
-    console.log(this.randomClient);
-    return this.randomClient;
+  getClients(){
+    return this.clients;
   }
-
-  saveRandomClient(): Client[]{
-    this.randomClient = this.randomClient;
-    return this.randomClient; 
-  }
-
 
 
   // use API at: https://uifaces.co/api-docs

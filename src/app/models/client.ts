@@ -1,6 +1,7 @@
 export class Client {
-    id:number;
-    name:string;
+    id:string;
+    firstName:string;
+    lastName:string;
     picture:string;
     requestTitle:string;
     paragraphOne:string;
@@ -10,4 +11,5 @@ export class Client {
     status:string;
     progress:number;
     notes:string;
+    date: any;
 };

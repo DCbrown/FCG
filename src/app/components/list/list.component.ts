@@ -9,11 +9,23 @@ import { Client } from '../../models/client';
 })
 export class ListComponent implements OnInit {
   clients: Client[];
+  acceptedClients: Client[];
+  inProgressClients: Client[];
+  finishedClients: Client[];
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-    this.clients = this.clientService.getClients();
+    this.acceptedClients = this.clientService.getAcceptedClients();
+    // this.clientService.getRandomClient();
+  }
+
+  getRandomClient(){
+    // this.clientService.getRandomClient();
+  }
+
+  onSelect(acceptedClient: Client) {
+    console.log(acceptedClient);
   }
 
 }

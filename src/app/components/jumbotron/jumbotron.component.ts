@@ -9,19 +9,57 @@ import { ClientService } from '../../services/client.service';
 })
 export class JumbotronComponent implements OnInit {
 
-  clients: any;
+  id:string;
+  firstName:string;
+  lastName:string;
+  picture:string;
+  requestTitle:string;
+  paragraphOne:string;
+  paragraphTwo:string;
+  paragraphThree:string;
+  attachment:string;
+  status:string;
+  progress:number;
+  notes:string;
+  date: any;
+  
+  randomClient: any;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
    // this.clients = this.clientService.getRandomClient();
+   this.randomClient = this.clientService.getRandomClient();
   }
 
-  generateClient(){
+  generateRandomClient(){
    // console.clear();
    // this.clients = this.clientService.getRandomClient();
+   this.randomClient = this.clientService.getRandomClient();
   }
   
+  addClient() {
+    const newClient = this.randomClient
+    /*
+    const newClient = {
+      id: this.id,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      picture: this.picture,
+      requestTitle: this.requestTitle,
+      paragraphOne: this.paragraphOne,
+      paragraphTwo: this.paragraphTwo,
+      paragraphThree: this.paragraphThree,
+      attachment: this.attachment,
+      status: this.status,
+      progress: this.progress,
+      notes: this.notes,
+      date: new Date();
+    }
+    */
 
+    this.clientService.addClient(newClient);
+
+  }
 
 }

@@ -10,25 +10,25 @@
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-        <div *ngFor="let client of clients" class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">            
+        <div *ngFor="let acceptedClient of acceptedClients" class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">            
                 <div id="accordion">
                         <div class="card mb-3">
                             <div class="card-header success" id="headingOne">
-                                <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' + client.firstName" aria-expanded="true" aria-controls="collapseOne">
-                                <h4 class="mb-0"> {{client.firstName}} - Progress {{client.progress}}% - {{client.date | date:'short'}}</h4>
+                                <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' + acceptedClient.firstName" aria-expanded="true" aria-controls="collapseOne">
+                                <h4 class="mb-0"> {{acceptedClient.firstName}} {{acceptedClient.lastName}} - Progress {{acceptedClient.progress}}% - {{acceptedClient.date | date:'shortDate'}}</h4>
                                 </button>
                             </div>
                         
-                            <div id="{{client.firstName}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div id="{{acceptedClient.firstName}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <div class="collapse multi-collapse" id="{{client.lastName}}">
+                                    <div class="collapse multi-collapse" id="{{acceptedClient.lastName}}">
                                         <div class="card card-body">
-                                            <p>{{client.paragraphOne}}</p>
-                                            <p>{{client.paragraphTwo}}</p>
-                                            <p>{{client.paragraphThree}}</p>
+                                            <p>{{acceptedClient.paragraphOne}}</p>
+                                            <p>{{acceptedClient.paragraphTwo}}</p>
+                                            <p>{{acceptedClient.paragraphThree}}</p>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" [attr.data-target]="'#' + client.lastName" aria-expanded="false" aria-controls="multiCollapseExample2">Show Request</button>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" [attr.data-target]="'#' + acceptedClient.lastName" aria-expanded="false" aria-controls="multiCollapseExample2">Show Request</button>
                                     <div class="form-group">
                                         <hr>
                                         <label for="exampleFormControlSelect1">Select Percentage Complete</label>
@@ -61,7 +61,7 @@
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Completed Task... Other Notes... Etc."></textarea>
                                     </div>
                                     <hr>
-                                    <button type="button" mdbBtn color="success" class="relative waves-light" mdbWavesEffect><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+                                    <button type="button" mdbBtn color="success" (click)="onSelect(acceptedClient)" class="relative waves-light" mdbWavesEffect><i class="fa fa-save" aria-hidden="true"></i> Save</button>
                                     <button type="button" mdbBtn color="danger" (click)="deleteModal.show()" class="waves-light" aria-label="Close" mdbWavesEffect><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
                                 </div>
                             </div>

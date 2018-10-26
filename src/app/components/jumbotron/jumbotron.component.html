@@ -14,13 +14,13 @@
   
 
   <hr class="my-4 pb-2">
-  <button class="btn btn-indigo btn-rounded" (click)="basicModal.show(); generateClient()">Generate A Client <i class="fa fa-users ml-1"></i></button>
+  <button class="btn btn-indigo btn-rounded" (click)="basicModal.show(); generateRandomClient()">Generate A Client <i class="fa fa-users ml-1"></i></button>
 
 </div>
 <!--Jumbotron-->
 
 <div mdbModal style="overflow-y: auto" #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
@@ -45,14 +45,16 @@
         <!--Card content-->
         <!--Title-->
         <h4 class="card-title">
-          <strong> </strong>
+          <strong>{{randomClient.firstName}}</strong>
         </h4>
         <h5 class="indigo-text">
-          <strong></strong>
+          <strong>{{randomClient.requestTitle}}</strong>
         </h5>
 
         <mdb-card-text>
-          Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+          <p>{{randomClient.paragraphOne}}</p>
+          <p>{{randomClient.paragraphTwo}}</p>
+          <p>{{randomClient.paragraphThree}}</p>
         </mdb-card-text>
         
 
@@ -62,9 +64,9 @@
     </mdb-card>
       </div>
       <h4 class="modal-title w-100 text-center" id="myModalLabel">Accept the Job?</h4>
-      <div class="modal-footer col-md-9 ml-4">
+      <div class="modal-footer col-md-8 ml-4">
         <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect><i class="fa fa-times" aria-hidden="true"></i></button>
-        <button type="button" mdbBtn color="success" class="relative waves-light" mdbWavesEffect><i class="fa fa-check" aria-hidden="true"></i></button>
+        <button type="button" mdbBtn color="success" class="relative waves-light" (click)="addClient(); basicModal.hide()" mdbWavesEffect><i class="fa fa-check" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>

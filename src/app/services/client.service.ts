@@ -8,9 +8,77 @@ import { of } from 'rxjs/observable/of';
 export class ClientService {
 
   clients: Client[];
-  
+  acceptedClients: Client[];
+  inProgressClients: Client[];
+  finishedClients: Client[];
+  randomClient: any;
+
+  private clientSource = new BehaviorSubject<Client>({id:null,
+  firstName: null,
+  lastName: null,
+  picture: null,
+  requestTitle: null,
+  paragraphOne: null,
+  paragraphTwo: null,
+  paragraphThree: null,
+  attachment: null,
+  status: null,
+  progress: null,
+  notes: null,
+  date: null });
+
+  selectedClient = this.clientSource.asObservable();
+
   constructor() {
     this.clients = [
+      {
+        id:'5',
+        firstName:'Jody',
+        lastName: 'Summers',
+        picture:'',
+        requestTitle:'Need Web Developer',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo:'I need a makeover',
+        paragraphThree:'plus it needs to be responsive',
+        attachment:null,
+        status:'notAccepted',
+        progress:0,
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
+      },
+      {
+        id:'6',
+        firstName:'Dan',
+        lastName: 'Smith',
+        picture:'',
+        requestTitle:'Need Web Developer',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo:'Can you make websites',
+        paragraphThree:'Thank you for your time',
+        attachment:null,
+        status:'notAccepted',
+        progress:0,
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
+      },
+      {
+        id:'7',
+        firstName:'Craig',
+        lastName: 'Ceak',
+        picture:'',
+        requestTitle:'Need Web Developer',
+        paragraphOne:'I need a web developer for my website',
+        paragraphTwo:'I need 5 pages on my website',
+        paragraphThree:'let me know',
+        attachment:null,
+        status:'notAccepted',
+        progress:0,
+        notes:'',
+        date: new Date('10/14/2018 12:54:43')
+      }
+    ]
+
+    this.acceptedClients = [
       {
         id:'1',
         firstName:'James',
@@ -66,10 +134,29 @@ export class ClientService {
   // inProgress
   // finished
 
-  getClients(){
-    return this.clients;
+  getAcceptedClients() {
+    return this.acceptedClients;
   }
 
+  getRandomClient(): Client[]{
+    this.randomClient = this.clients[Math.floor(Math.random() * this.clients.length)];
+    console.log(this.randomClient);
+    return this.randomClient;
+  }  
+
+  setSelectedClient(client: Client) {
+    this.clientSource.next(client);
+  }
+  
+  addClient(client: Client){
+    this.acceptedClients.unshift(client);
+  }
+
+  /*
+  getClients() {
+    return this.clients;
+  }
+  */
 
   // use API at: https://uifaces.co/api-docs
 }
